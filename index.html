@@ -108,37 +108,44 @@
 </body>
 
 <script>
-    async function carregarNoticias() {
-  const apiKey = '9311483e1913453cb2b8a0f7e35109f9';
-  const url = `https://newsapi.org/v2/top-headlines?category=business&language=pt&apiKey=${apiKey}`;
+async function carregarNoticias() {
+  const apiKey = '7bdad30760a529e949ed4ecf59ec2343'
+  const url = `https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&country=br&token=${apiKey}`
 
   try {
-    const res = await fetch(url);
-    const data = await res.json();
+    const res = await fetch(url)
+    const data = await res.json()
 
-    const container = document.getElementById('noticias');
-    container.innerHTML = '';
+    const container = document.getElementById('noticias')
+    container.innerHTML = ''
+
+    if (!data.articles || data.articles.length === 0) {
+      container.innerHTML = '<p>Nenhuma notícia disponível no momento.</p>'
+      return
+    }
 
     data.articles.slice(0, 3).forEach(noticia => {
-      const card = document.createElement('div');
-      card.className = 'feature-card';
+      const card = document.createElement('div')
+      card.className = 'feature-card'
       card.innerHTML = `
-        <img src="${noticia.urlToImage || 'img/default.jpg'}" alt="Imagem da notícia" class="card-image">
+        <img src="${noticia.image || 'img/default.jpg'}" alt="Imagem da notícia" class="card-image">
         <div class="card-body">
           <h4 class="card-title">${noticia.title}</h4>
           <p class="card-description">${noticia.description || ''}</p>
           <a href="${noticia.url}" target="_blank" class="news-link">Ler mais →</a>
         </div>
-      `;
-      container.appendChild(card);
-    });
+      `
+      container.appendChild(card)
+    })
   } catch (error) {
-    console.error('Erro ao carregar notícias:', error);
-    document.getElementById('noticias').innerHTML = '<p>Não foi possível carregar as notícias no momento.</p>';
+    console.error('Erro ao carregar notícias:', error)
+    document.getElementById('noticias').innerHTML = '<p>Não foi possível carregar as notícias no momento.</p>'
   }
 }
 
-carregarNoticias();
+carregarNoticias()
 </script>
+
+
 
 </html>
