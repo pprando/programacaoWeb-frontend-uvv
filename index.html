@@ -110,10 +110,11 @@
 <script>
 async function carregarNoticias() {
   const apiKey = '7bdad30760a529e949ed4ecf59ec2343'
-  const url = `https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&country=br&token=${apiKey}`
+  const gnewsUrl = `https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&country=br&token=${apiKey}`
+  const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(gnewsUrl)}`
 
   try {
-    const res = await fetch(url)
+    const res = await fetch(proxyUrl)
     const data = await res.json()
 
     const container = document.getElementById('noticias')
@@ -145,6 +146,7 @@ async function carregarNoticias() {
 
 carregarNoticias()
 </script>
+
 
 
 
