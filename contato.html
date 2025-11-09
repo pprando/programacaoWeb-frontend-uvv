@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
-    <title>Blog de Finanças - Contato</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Finanças - Contato</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+    }
+    .nav-link.active {
+      font-weight: 600;
+      color: #10b981;
+      border-bottom: 2px solid #10b981;
+    }
+    .backdrop {
+      backdrop-filter: blur(20px);
+      background-color: rgba(30, 41, 59, 0.6);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="min-h-screen flex flex-col">
 
-    <header class="bg-white shadow-md sticky top-0 z-10">
-        <div class="max-w-6xl mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <h1 class="text-3xl font-bold text-green-700">Meu Blog de Finanças</h1>
+  <header class="backdrop sticky top-0 z-10 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-green-400">Meu Blog de Finanças</h1>
 
-                <nav>
-                    <ul class="flex space-x-6">
-                        <li><a href="index.html" class="nav-link text-gray-700 hover:text-green-700 py-2">Home</a></li>
-                        <li><a href="investimentos.html" class="nav-link text-gray-700 hover:text-green-700 py-2">Investimentos</a></li>
-                        <li><a href="orcamento.html" class="nav-link text-gray-700 hover:text-green-700 py-2">Orçamento</a></li>
-                        <li><a href="acoes.html" class="nav-link text-gray-700 hover:text-green-700 py-2">Ações</a></li>
-                        <li><a href="contato.html" class="nav-link text-gray-700 hover:text-green-700 py-2 active">Contato</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <nav>
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="nav-link text-gray-300 hover:text-green-400 py-2">Home</a></li>
+            <li><a href="investimentos.html" class="nav-link text-gray-300 hover:text-green-400 py-2">Investimentos</a></li>
+            <li><a href="orcamento.html" class="nav-link text-gray-300 hover:text-green-400 py-2">Orçamento</a></li>
+            <li><a href="acoes.html" class="nav-link text-gray-300 hover:text-green-400 py-2">Ações</a></li>
+            <li><a href="contato.html" class="nav-link text-gray-300 hover:text-green-400 py-2 active">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center px-4 py-10">
+    <section id="page-contato" class="backdrop max-w-2xl w-full p-8 rounded-2xl shadow-2xl border border-gray-700">
+      <h2 class="text-3xl font-bold mb-6 text-green-400">Entre em Contato</h2>
+      <p class="text-lg mb-8 text-gray-300">
+        Tem dúvidas, sugestões ou quer anunciar conosco? Preencha o formulário abaixo e entraremos em contato.
+      </p>
+
+      <form action="#" method="POST" class="space-y-6">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-300">Nome</label>
+          <input type="text" id="name" name="name" class="mt-1 block w-full p-3 rounded-md bg-gray-900/60 border border-gray-700 text-gray-100 focus:ring-green-500 focus:border-green-500">
         </div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-4 py-8">
-
-        <section id="page-contato" class="bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Entre em Contato</h2>
-            <p class="text-lg mb-6">
-                Tem dúvidas, sugestões ou quer anunciar conosco? Preencha o formulário abaixo e entraremos em contato.
-            </p>
-
-            <form action="#" method="POST" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
-                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="w-full py-3 px-6 bg-green-700 text-white font-bold text-lg rounded-md shadow-md hover:bg-green-800 transition-colors">
-                        Enviar Mensagem
-                    </button>
-                </div>
-            </form>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-800 text-gray-300 mt-12">
-        <div class="max-w-6xl mx-auto px-4 py-6 text-center">
-            <p>&copy; 2025 - Meu Blog de Finanças - AOP2</p>
-            <p class="text-sm text-gray-500">Trabalho de Programação Web Frontend</p>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+          <input type="email" id="email" name="email" class="mt-1 block w-full p-3 rounded-md bg-gray-900/60 border border-gray-700 text-gray-100 focus:ring-green-500 focus:border-green-500">
         </div>
-    </footer>
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-300">Mensagem</label>
+          <textarea id="message" name="message" rows="4" class="mt-1 block w-full p-3 rounded-md bg-gray-900/60 border border-gray-700 text-gray-100 focus:ring-green-500 focus:border-green-500"></textarea>
+        </div>
+        <div>
+          <button type="submit" class="w-full py-3 px-6 bg-green-600 text-white font-bold text-lg rounded-md shadow-md hover:bg-green-700 transition-colors">
+            Enviar Mensagem
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="backdrop border-t border-gray-700 text-gray-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+      <p>&copy; 2025 - Meu Blog de Finanças - AOP2</p>
+      <p class="text-sm text-gray-500">Trabalho de Programação Web Frontend</p>
+    </div>
+  </footer>
 
 </body>
 </html>
